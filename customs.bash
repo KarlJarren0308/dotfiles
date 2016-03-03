@@ -1,60 +1,65 @@
 #!/bin/bash
 
-function tagisan() {
-    cd;
-    
-    if [ $1 == 'db' ]; then
-        dbmongo;
-        mongod --dbpath /c/users/karljarren/nodefiles/tagisan_ng_talino/data;
-    elif [ $1 == 'sys' ]; then
-        cd /c/users/karljarren/nodefiles/tagisan_ng_talino;
-    fi
-}
-
-function run() {
-    if [ $1 == 'laravel' ]; then
-        if [ -z $2 ]; then
-            php artisan serve;
+function web() {
+    if [ $1 == 'chrome' ]; then
+        cd /c/program\ files\ \(x86\)/google/chrome/application;
+        
+        if [ $2 == '-i' ]; then
+            if [ $3 == '-l' ]; then
+                chrome.exe --incognito localhost/$3;
+            elif [ $2 == '-a' ]; then
+                chrome.exe --incognito $3;
+            else
+                echo "Invaid Input. Please use 'web help' to view the documentation.";
+            fi
+        elif [ $2 == '-n' ]; then
+            if [ $3 == '-l' ]; then
+                chrome.exe localhost/$3;
+            elif [ $2 == '-a' ]; then
+                chrome.exe $3;
+            else
+                echo "Invaid Input. Please use 'web help' to view the documentation.";
+            fi
         else
-            php artisan serve --port=$2;
+            echo "Invaid Input. Please use 'web help' to view the documentation.";
         fi
-    elif [ $1 == 'nodejs' ]; then
-        node app;
-    fi
-}
+    elif [ $1 == 'firefox' ]; then
+        cd /c/program\ files\ \(x86\)/mozilla\ firefox;
 
-function gc() {
-    cd /c/program\ files\ \(x86\)/google/chrome/application;
-
-    if [ $1 == '-i' ]; then
-        if [ -z $2 ]; then
-            chrome.exe --incognito;
+        if [ $2 == '-p' ]; then
+            if [ $3 == '-l' ]; then
+                firefox.exe -private-window localhost/$3;
+            elif [ $2 == '-a' ]; then
+                firefox.exe -private-window $3;
+            else
+                echo "Invaid Input. Please use 'web help' to view the documentation.";
+            fi
+        elif [ $2 == '-n' ]; then
+            if [ $3 == '-l' ]; then
+                firefox.exe localhost/$3;
+            elif [ $2 == '-a' ]; then
+                firefox.exe $3;
+            else
+                echo "Invaid Input. Please use 'web help' to view the documentation.";
+            fi
         else
-            chrome.exe --incognito $2;
+            echo "Invaid Input. Please use 'web help' to view the documentation.";
         fi
+    elif [ $1 == 'help' ]; then
+        printf "Usage: web [command|browser] [mode] [custom domain] url\n\n";
+        printf "Browser Option(s):\n";
+        printf "chrome     Uses Google Chrome\n";
+        printf "firefox    Uses Mozilla Firefox\n\n";
+        printf "Mode Option(s):\n";
+        printf -- "-i         Private Browsing for Google Chrome\n";
+        printf -- "-p         Private Browsing for Mozilla Firefox\n";
+        printf -- "-n         Normal Browsing for Google Chrome and Mozilla Firefox\n\n";
+        printf "Custom Domain Options:\n";
+        printf -- "-l         Sets 'localhost' in the browser's address bar. This preceeds\n           the url specified by the user.\n";
+        printf -- "-a         Doesn't set anything in the browser's address bar. This\n           preceeds the url specified by the user.\n\n";
+        printf "Other Option(s):\n";
+        printf -- "url        URL to be entered in the address bar.";
     else
-        if [ -z $1 ]; then
-            chrome.exe;
-        else
-            chrome.exe $1;
-        fi;
-    fi
-}
-
-function mz() {
-    cd /c/program\ files\ \(x86\)/mozilla\ firefox;
-
-    if [ $1 == '-p' ]; then
-        if [ -z $2 ]; then
-            firefox.exe -private-window;
-        else
-            firefox.exe -private-window $2;
-        fi
-    else
-        if [ -z $1 ]; then
-            firefox.exe;
-        else
-            firefox.exe $1;
-        fi;
+        echo "Invaid Input. Please use 'web help' to view the documentation.";
     fi
 }
