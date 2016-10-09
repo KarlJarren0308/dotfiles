@@ -22,9 +22,9 @@ pythonfiles() {
     cd;
     
     if [ -z $1 ]; then
-        cd /c/Python27/pythonfiles/;
+        cd /c/users/karljarren/pythonfiles/;
     else
-        cd /c/Python27/pythonfiles/;
+        cd /c/users/karljarren/pythonfiles/;
         cd $1;
     fi
 }
