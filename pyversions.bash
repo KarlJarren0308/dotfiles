@@ -7,7 +7,7 @@
 #   will execute py.exe (for Python) with specified
 #   version.
 #
-#   NOTE: py2() and py3 functions of this file will
+#   NOTE: py2() and py3() functions of this file will
 #   ignore shebang of the python file (if specified)
 #   and will execute with the version of the
 #   function. So if you use py2() function on a
