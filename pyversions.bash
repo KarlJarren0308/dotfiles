@@ -27,7 +27,7 @@
 
 py2() {
     if [ -z $1 ]; then
-        echo "Please speciy a filename (without file extension)."
+        echo "Please specify a filename (without file extension)."
     else
         py -2 ./$1.py
     fi
@@ -35,7 +35,7 @@ py2() {
 
 py3() {
     if [ -z $1 ]; then
-        echo "Please speciy a filename (without file extension)."
+        echo "Please specify a filename (without file extension)."
     else
         py -3 ./$1.py
     fi
